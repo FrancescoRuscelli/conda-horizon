@@ -1,0 +1,16 @@
+package:
+  name: casadi_kin_dyn
+  version: "0.0.1"
+  
+source:
+  git_url: https://github.com/ADVRHumanoids/casadi_kin_dyn.git
+  git_rev: aba_no_deser
+  
+build:
+  noarch: python
+  number: 0
+
+requirements:
+  build:
+    - cmake
+

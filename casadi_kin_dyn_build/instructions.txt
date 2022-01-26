@@ -1,0 +1,41 @@
+CASADI_KIN_DYN BUILD
+this docker builds 'casadi_kin_dyn' as a conda package (optionally it can be uploaded on the channel)
+
+###########################################################
+
+1. build the docker (in the folder where the Dockerfile is)
+
+-->   docker build --rm -t casadikindyntrial:latest .
+
+###########################################################
+
+2. run the docker
+
+-->   docker run -it --rm --name caskin casadikindyntrial
+   
+###########################################################
+
+3. activate the correct environment and build casadi_kin_dyn
+
+-->   sudo chmod +x initial_commands.sh && ./initial_commands.sh
+   
+###########################################################
+
+4. install casadi_kin_dyn by using tar file (always in the correct environment)
+   
+-->   conda activate kindyn
+-->   conda install $CONDA_PREFIX/conda-bld/noarch/casadi_kin_dyn-0.0.1-0.tar.bz2
+
+###########################################################
+
+5. test the installation using the cart_pole urdf
+
+-->   cd ~/code/examples/ && python3 cart_pole_urdf_reader.py
+   
+###########################################################
+6. upload (if desired) the package casadi_kin_dyn to channel
+
+#conda config --set anaconda_upload yes
+--> anaconda login                     ---------> asks for name and password
+--> anaconda upload $CONDA_PREFIX/conda-bld/noarch/casadi_kin_dyn-0.0.1-0.tar.bz2
+

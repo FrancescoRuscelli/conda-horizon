@@ -1,0 +1,11 @@
+name: cs
+channels:
+- conda-forge
+- robostack
+- francesco_ruscelli
+dependencies:
+- python=3.8
+- ipython
+- casadi
+- ros-noetic-pinocchio
+- francesco_ruscelli::casadi_kin_dyn

@@ -1,0 +1,23 @@
+HORIZON DOWNLOAD
+this docker downloads 'casadi_kin_dyn' from the conda channel (francesco_ruscelli) 
+and run the example cart_pole_urdf_reader.py to check that everything is good
+
+###########################################################
+
+1. build the docker (in the folder where the Dockerfile is)
+
+-->   docker build --rm -t casadikindyndownload:latest .
+
+###########################################################
+
+2. run the docker
+
+-->   docker run -it --rm --name hor casadikindyndownload
+   
+###########################################################
+
+3. activate the correct environment and run cart_pole_urdf_reader
+
+-->   conda activate caskin
+-->   cd ~/code/examples
+-->   python3 ~/code/examples/cart_pole_urdf_reader.py

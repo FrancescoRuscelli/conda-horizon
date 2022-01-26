@@ -1,0 +1,24 @@
+CASADI TRY
+this docker downloads both 'casadi_kin_dyn' and 'casadi' from the conda channel
+and run two tests: 
+    - "simple_casadi_solve.py"
+    - "simple_caskindyn_parse.py"
+in order to check if everything is working correctly.
+
+###########################################################
+
+1. build the docker (in the folder where the Dockerfile is)
+
+-->   docker build --rm -t casaditry:latest .
+
+###########################################################
+
+2. run the docker
+
+-->   docker run -it --rm --name castry casaditry
+   
+###########################################################
+
+3. activate the correct environment and build casadi_kin_dyn
+
+-->   sudo chmod +x initial_commands.sh && ./initial_commands.sh

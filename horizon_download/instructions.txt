@@ -1,0 +1,23 @@
+HORIZON DOWNLOAD
+this docker downloads both 'casadi_kin_dyn' and 'horizon' from the conda channel (francesco_ruscelli) 
+and run the example cart_pole.py to check that everything is good
+
+###########################################################
+
+1. build the docker (in the folder where the Dockerfile is)
+
+-->   docker build --rm -t horizondownload:latest .
+
+###########################################################
+
+2. run the docker
+
+-->   docker run -it --rm --name hor horizondownload
+   
+###########################################################
+
+3. activate the correct environment and run cart_pole
+
+-->   conda activate hori
+-->   cd ~/code/examples 
+-->   python3 ~/code/examples/cart_pole.py

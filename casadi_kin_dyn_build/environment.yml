@@ -1,0 +1,20 @@
+name: kindyn
+channels:
+- conda-forge
+- robostack
+- francesco_ruscelli
+dependencies:
+- python=3.8
+- nodejs=14
+- jupyterlab=3.2
+- casadi
+#- pinocchio
+- pybind11
+- urdfdom
+- cmake
+- conda-build
+- conda-verify
+- anaconda-client
+- ros-noetic-ros-base
+- ros-noetic-pinocchio
+
