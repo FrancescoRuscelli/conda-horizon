@@ -32,8 +32,3 @@ RUN cd ~/code && yes Y | mamba env create -f environment.yml
 RUN mkdir /home/daniele/code/horizon
 COPY meta.yaml /home/daniele/code/horizon
 COPY initial_commands.sh /home/daniele/
-
-# add an example for testing
-RUN mkdir /home/daniele/code/examples
-COPY /examples/cart_pole.py /home/daniele/code/examples
-COPY /examples/cart_pole.urdf /home/daniele/code/examples
