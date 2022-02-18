@@ -26,9 +26,11 @@ RUN mkdir ~/code
 COPY environment.yml /home/daniele/code
 RUN cd ~/code && yes Y | mamba env create -f environment.yml
 
-# switch to "kindyn" conda environment
-#SHELL ["conda", "run", "-n", "kindyn", "/bin/bash", "-c"]
+#COPY modify_ld_library_path.sh /home/daniele/
+#RUN sudo chmod +x modify_ld_library_path.sh && ./modify_ld_library_path.sh
 
 RUN mkdir /home/daniele/code/horizon
 COPY meta.yaml /home/daniele/code/horizon
 COPY initial_commands.sh /home/daniele/
+
+RUN sudo chmod +x initial_commands.sh && ./initial_commands.sh

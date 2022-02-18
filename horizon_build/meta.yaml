@@ -9,12 +9,20 @@ source:
 build:
   noarch: python
   number: 0
-  script: python3 -m pip install --no-deps --ignore-installed .
+  script: python3 -m pip install --no-deps --ignore-installed -v .
 
 requirements:
   host:
     - python
     - setuptools
+
+test:
+  import:
+    - casadi
+  source_files:
+    - horizon/tests/test_examples.py
+  files:
+    - test_examples.py
 
 about:
   home: https://github.com/ADVRHumanoids/horizon.git
