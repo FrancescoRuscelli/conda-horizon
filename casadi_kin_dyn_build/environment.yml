@@ -2,7 +2,6 @@ name: kindyn
 channels:
 - conda-forge
 - robostack
-- francesco_ruscelli
 dependencies:
 - python=3.8
 - nodejs=14

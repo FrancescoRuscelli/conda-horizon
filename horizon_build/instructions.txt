@@ -24,7 +24,7 @@ this docker downloads 'casadi_kin_dyn' and builds horizon as a conda package (op
 4. install horizon by using tar file (always in the correct environment)
    
 -->   conda activate hori
--->   conda install $CONDA_PREFIX/conda-bld/noarch/horizon...
+-->   conda install $CONDA_PREFIX/conda-bld/noarch/*.tar.bz2
 
 ###########################################################
 

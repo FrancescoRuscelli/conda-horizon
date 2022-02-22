@@ -16,9 +16,12 @@ cd code/
 
 # building the casadi_kin_dyn package
 # using the following command instead of "conda-build" because of error "DependencyNeedsBuildingError: Unsatisfiable dependencies for platform linux-64"
-conda build -c conda-forge $PACKAGE_NAME
+conda build -c conda-forge -c francesco_ruscelli -c robostack $PACKAGE_NAME
 
 echo -e "done."
+
+
+#conda install $CONDA_PREFIX/conda-bld/noarch/horizon...
 
 
 

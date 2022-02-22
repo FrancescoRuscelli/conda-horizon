@@ -24,16 +24,16 @@ RUN mkdir ~/code
 COPY environment.yml /home/daniele/code
 RUN cd ~/code && yes Y | mamba env create -f environment.yml
 
-# switch to "kindyn" conda environment
-#SHELL ["conda", "run", "-n", "kindyn", "/bin/bash", "-c"]
-
-#this is not necessary as conda-build will download all the required packages itself
-#RUN cd ~/code && git clone https://github.com/ADVRHumanoids/casadi_kin_dyn.git
-
 RUN mkdir /home/daniele/code/casadi_kin_dyn
 COPY meta.yaml /home/daniele/code/casadi_kin_dyn
 COPY build.sh /home/daniele/code/casadi_kin_dyn
 COPY initial_commands.sh /home/daniele/
+
+ARG USER=ADVRHumanoids
+ARG REPO=casadi_kin_dyn
+ARG BRANCH=aba_no_deser
+ADD https://api.github.com/repos/$USER/$REPO/git/refs/heads/$BRANCH version.json
+RUN sudo chmod +x initial_commands.sh && ./initial_commands.sh
 
 # add an example for testing
 RUN mkdir /home/daniele/code/examples
