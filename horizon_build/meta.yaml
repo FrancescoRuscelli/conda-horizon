@@ -36,8 +36,8 @@ test:
 
   source_files:
     - horizon/tests/test_examples.py
-  # commands:
-  #   - python3 -m pytest horizon/tests/test_examples.py
+  commands:
+    - python3 -m pytest horizon/tests/test_examples.py
 
 about:
   home: https://github.com/ADVRHumanoids/horizon.git

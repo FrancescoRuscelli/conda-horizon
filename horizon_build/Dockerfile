@@ -35,6 +35,6 @@ COPY initial_commands.sh /home/daniele/
 
 ARG USER=ADVRHumanoids
 ARG REPO=horizon
-ARG BRANCH=fr_devel
+ARG BRANCH=devel
 ADD https://api.github.com/repos/$USER/$REPO/git/refs/heads/$BRANCH version.json
 RUN sudo chmod +x initial_commands.sh && ./initial_commands.sh

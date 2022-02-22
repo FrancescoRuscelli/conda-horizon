@@ -4,6 +4,13 @@
 # A simple script to initialize the conda environment
 ENVIRONMENT_NAME=hori
 PACKAGE_NAME=horizon
+UPLOAD=True
+
+if [ '$UPLOAD' = true ]; then
+    echo "Not uploading to conda";
+else
+    conda config --set anaconda_upload yes;
+fi
 
 # sourcing base conda path to activate environment
 source $(conda info --base)/etc/profile.d/conda.sh
