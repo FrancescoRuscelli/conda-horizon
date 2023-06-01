@@ -4,10 +4,9 @@ channels:
 - robostack
 dependencies:
 - python=3.8
-- nodejs=14
-- jupyterlab=3.2
+- nodejs
 - casadi
-#- pinocchio
+- hpp-pinocchio # (necessary for hpp-flc that the branch collision uses)
 - pybind11
 - urdfdom
 - cmake
@@ -15,5 +14,7 @@ dependencies:
 - conda-verify
 - anaconda-client
 - ros-noetic-ros-base
-- ros-noetic-pinocchio
+- gxx_linux-64  # required for a bug in letsee (which is actually not necessary)
+# - ros-noetic-pinocchio # not required as hpp-pinocchio is there already
+# - eigenpy # not required I believe 
 

@@ -29,13 +29,12 @@ COPY meta.yaml /home/daniele/code/casadi_kin_dyn
 COPY build.sh /home/daniele/code/casadi_kin_dyn
 COPY initial_commands.sh /home/daniele/
 
-ARG USER=ADVRHumanoids
-ARG REPO=casadi_kin_dyn
-ARG BRANCH=aba_no_deser
-ADD https://api.github.com/repos/$USER/$REPO/git/refs/heads/$BRANCH version.json
+# needed if I want to build it from a local folder and not from
+# COPY casadi_kin_dyn/ /home/daniele/code/casadi_kin_dyn/src/ 
+
 RUN sudo chmod +x initial_commands.sh && ./initial_commands.sh
 
 # add an example for testing
-RUN mkdir /home/daniele/code/examples
-COPY /examples/cart_pole_urdf_reader.py /home/daniele/code/examples
-COPY /examples/cart_pole.urdf /home/daniele/code/examples
+RUN mkdir /home/daniele/code/casadi_kin_dyn/tests
+COPY /examples/cart_pole_urdf_reader.py /home/daniele/code/casadi_kin_dyn/tests
+COPY /examples/cart_pole.urdf /home/daniele/code/casadi_kin_dyn/tests

@@ -1,10 +1,11 @@
 package:
   name: casadi_kin_dyn
-  version: "0.0.1"
+  version: "0.0.2"
   
 source:
+  # path: src
   git_url: https://github.com/ADVRHumanoids/casadi_kin_dyn.git
-  git_rev: aba_no_deser
+  git_rev: collision
   
 build:
   noarch: python
@@ -14,3 +15,16 @@ requirements:
   build:
     - cmake
 
+# test:
+#   import:
+#     - casadi_kin_dyn
+#   requires:
+#     - pytest
+#   source_files:
+#     - tests/cart_pole_urdf_reader.py
+#   commands:
+#     - python3 -m pytest tests/cart_pole_urdf_reader.py
+
+about:
+  home: https://github.com/ADVRHumanoids/casadi_kin_dyn
+  summary: "Package for generation of symbolic (SX) expressions of robot kinematics and dynamics. Based on URDF and Pinocchio."
