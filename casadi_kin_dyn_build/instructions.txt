@@ -21,7 +21,7 @@ this docker builds 'casadi_kin_dyn' as a conda package (optionally it can be upl
 3. test the installation using the cart_pole urdf
 
 -->   conda activate kindyn
--->   cd ~/code/examples/ && python3 cart_pole_urdf_reader.py
+-->   cd ~/code/casadi_kin_dyn/tests/ && python3 cart_pole_urdf_reader.py
    
 ###########################################################
 
@@ -29,5 +29,5 @@ this docker builds 'casadi_kin_dyn' as a conda package (optionally it can be upl
 
 #conda config --set anaconda_upload yes
 --> anaconda login                     ---------> asks for name and password
---> anaconda upload $CONDA_PREFIX/conda-bld/noarch/casadi_kin_dyn-0.0.1-0.tar.bz2
+--> anaconda upload $CONDA_PREFIX/conda-bld/casadi_kin_dyn*.tar.bz2
 

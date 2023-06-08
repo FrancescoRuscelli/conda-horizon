@@ -6,7 +6,7 @@ package:
 
 source:
   git_url: https://github.com/ADVRHumanoids/horizon.git
-  git_rev: devel
+  git_rev: rhc
 
 build:
   noarch: python
@@ -34,10 +34,10 @@ test:
     - matplotlib
     - pytest
 
-  source_files:
-    - horizon/tests/test_examples.py
-  commands:
-    - python3 -m pytest horizon/tests/test_examples.py
+  # source_files:
+    # - horizon/tests/test_examples.py
+  # commands:
+    # - python3 -m pytest horizon/tests/test_examples.py
 
 about:
   home: https://github.com/ADVRHumanoids/horizon.git

@@ -4,8 +4,9 @@ channels:
 - robostack
 - francesco_ruscelli
 dependencies:
+- gxx_linux-64
 - python=3.8
-- nodejs=14
+- nodejs
 - jupyterlab=3.2
 - yaml-cpp
 - pip

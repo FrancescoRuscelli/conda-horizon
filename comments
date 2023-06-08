@@ -1,1 +1,12 @@
 conda does not copy the .so libraries from ilqr and sqp. This is bad.
+
+---------------------
+
+The package 'horizon' is built and installed canonically with pip.
+If 'casadi_kin_dyn' is installed with conda it will not be discovered when installing horizon (it searches it as a required package) as it is not a pip package. 
+pip and conda are different package managers that does not communicate automatically.
+
+Possible solutions are:
+   - install 'casadi_kin_dyn' as a pip package inside conda environment
+   - install 'horizon' as a conda package (that relies on the 'casadi_kin_dyn' conda package)
+

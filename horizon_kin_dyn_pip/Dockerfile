@@ -23,13 +23,18 @@ ENV PATH /home/daniele/mambaforge/bin:$PATH
 
 RUN mkdir ~/code
 
-COPY environment.yml /home/daniele/code
-RUN cd ~/code && yes Y | mamba env create -f environment.yml
+COPY init_conda_env.sh /home/daniele/
+COPY envs/env*.yml /home/daniele/code/
+
+# run a script to activate all the environments added
+RUN sudo chmod +x init_conda_env.sh && ./init_conda_env.sh
 
 #COPY modify_ld_library_path.sh /home/daniele/
 #RUN sudo chmod +x modify_ld_library_path.sh && ./modify_ld_library_path.sh
 
-RUN mkdir /home/daniele/code/horizon
-COPY meta.yaml /home/daniele/code/horizon
-COPY initial_commands.sh /home/daniele/
-RUN sudo chmod +x initial_commands.sh && ./initial_commands.sh
+# ARG HORIZON_BRANCH='rhc'
+# RUN cd code/ git clone https://github.com/ADVRHumanoids/horizon.git -b $HORIZON_BRANCH
+ARG TEST_PATH=/home/daniele/code/examples
+RUN mkdir $TEST_PATH
+COPY /examples/cart_pole_urdf_reader.py $TEST_PATH
+COPY /examples/cart_pole.urdf $TEST_PATH

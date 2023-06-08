@@ -1,0 +1,39 @@
+KINDYN BUILD
+
+WARNING: this option is not working, as the pip package searches for specific versions of libraries that were used in the pip build:
+they are not necessary the ones found by the conda environment.
+
+
+
+
+this docker downloads 'casadi_kin_dyn' from pip inside a conda environment and clone 'horizon' from source.
+
+this simulates a possible situation in which the user wants to work inside a conda environment, but decide to install 'casadi_kin_dyn' from pip.
+This is a sensible choice as using 'horizon' from source using 'pip install .' will only recognize 'casadi_kin_dyn' (required dependency) package from pip, not from conda.
+
+Nevertheless, both the package pip and conda are available for casadi_kin_dyn.
+###########################################################
+
+1. build the docker (in the folder where the Dockerfile is)
+    - activate the correct environment and build casadi_kin_dyn
+    - install horizon
+
+-->   docker build --rm -t kindynpip:latest .
+
+###########################################################
+
+2. run the docker
+
+-->   docker run -it --rm --name caskinpip kindynpip
+
+#############################################################
+
+3. activate the correct environment and run cart_pole_urdf_reader
+
+-->   conda activate hori
+-->   cd ~/code/examples
+-->   python3 ~/code/examples/cart_pole_urdf_reader.py
+
+   
+
+

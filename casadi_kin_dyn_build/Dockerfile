@@ -20,21 +20,24 @@ ENV PATH /home/daniele/mambaforge/bin:$PATH
 #RUN conda install mamba -c conda-forge
 
 RUN mkdir ~/code
-
-COPY environment.yml /home/daniele/code
-RUN cd ~/code && yes Y | mamba env create -f environment.yml
-
 RUN mkdir /home/daniele/code/casadi_kin_dyn
 COPY meta.yaml /home/daniele/code/casadi_kin_dyn
+COPY conda_build_config.yaml /home/daniele/code/casadi_kin_dyn
 COPY build.sh /home/daniele/code/casadi_kin_dyn
-COPY initial_commands.sh /home/daniele/
+COPY build_conda_packages.sh /home/daniele/
+
+# COPY init_conda_env.sh /home/daniele/ and create the environment
+COPY env_build.yml /home/daniele/code/
+RUN cd ~/code && yes Y | mamba env create -f env_build.yml
+
+# manually add tests (for now, this is NOT run automatically by conda)
+RUN mkdir /home/daniele/code/casadi_kin_dyn/tests
+COPY /examples/cart_pole_urdf_reader.py /home/daniele/code/casadi_kin_dyn/tests
+COPY /examples/cart_pole.urdf /home/daniele/code/casadi_kin_dyn/tests
 
 # needed if I want to build it from a local folder and not from
 # COPY casadi_kin_dyn/ /home/daniele/code/casadi_kin_dyn/src/ 
 
-RUN sudo chmod +x initial_commands.sh && ./initial_commands.sh
+RUN sudo chmod +x build_conda_packages.sh && ./build_conda_packages.sh
 
-# add an example for testing
-RUN mkdir /home/daniele/code/casadi_kin_dyn/tests
-COPY /examples/cart_pole_urdf_reader.py /home/daniele/code/casadi_kin_dyn/tests
-COPY /examples/cart_pole.urdf /home/daniele/code/casadi_kin_dyn/tests
+

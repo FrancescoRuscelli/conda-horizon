@@ -17,14 +17,15 @@ RUN printf '\nyes\n\nyes\n' | bash Mambaforge-$(uname)-$(uname -m).sh
 
 # this is required to find conda
 ENV PATH /home/daniele/mambaforge/bin:$PATH
-#RUN conda install mamba -c conda-forge
+
+# copy all the environments found (referring to different python versions) 
+COPY init_conda_env.sh /home/daniele/
+COPY environment*.yml /home/daniele/code/
+
+# run a script to activate all the environments added
+RUN sudo chmod +x init_conda_env.sh && ./init_conda_env.sh
 
 RUN mkdir ~/code
-
-COPY environment.yml /home/daniele/code
-RUN cd ~/code && yes Y | mamba env create -f environment.yml
-
-
 # add an example for testing
 RUN mkdir /home/daniele/code/examples
 COPY /examples/cart_pole_urdf_reader.py /home/daniele/code/examples
