@@ -23,7 +23,8 @@ cd code/
 
 # building the casadi_kin_dyn package
 # using the following command instead of "conda-build" because of error "DependencyNeedsBuildingError: Unsatisfiable dependencies for platform linux-64"
-# mamba is just a faster conda 
+# mamba is just a faster conda
+# --token $CONDA_TOKEN
 mamba build -c conda-forge $PACKAGE_NAME #--output-folder $CONDA_PREFIX/conda-bld
 
 # installing the package as a conda package

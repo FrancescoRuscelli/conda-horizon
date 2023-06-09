@@ -8,17 +8,17 @@ source:
   git_rev: collision
   
 build:
-  number: 0
+  number: 1
   python:  {{ python }}
 
 requirements:
   build:
     - python {{ python }}
-    - cmake
     - casadi
     - hpp-pinocchio # (necessary for hpp-flc that the branch collision uses)
     - pybind11
     - urdfdom
+    - compilers
     - cmake
     - conda-build
     - conda-verify
