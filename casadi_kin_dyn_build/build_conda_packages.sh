@@ -3,10 +3,10 @@
 # A simple script to initialize the conda environment
 ENVIRONMENT_NAME=kindyn
 PACKAGE_NAME=casadi_kin_dyn
-UPLOAD=True
 
 if [ '$UPLOAD' = true ]; then
     echo -e "uploading to conda: false";
+    conda config --set anaconda_upload no;
 else
     echo -e "uploading to conda: true";
     conda config --set anaconda_upload yes;

@@ -31,9 +31,9 @@ COPY env_build.yml /home/daniele/code/
 RUN cd ~/code && yes Y | mamba env create -f env_build.yml
 
 # manually add tests (for now, this is NOT run automatically by conda)
-RUN mkdir /home/daniele/code/casadi_kin_dyn/tests
-COPY /examples/cart_pole_urdf_reader.py /home/daniele/code/casadi_kin_dyn/tests
-COPY /examples/cart_pole.urdf /home/daniele/code/casadi_kin_dyn/tests
+# RUN mkdir /home/daniele/code/casadi_kin_dyn/tests
+# COPY /examples/cart_pole_urdf_reader.py /home/daniele/code/casadi_kin_dyn/tests
+# COPY /examples/cart_pole.urdf /home/daniele/code/casadi_kin_dyn/tests
 
 # needed if I want to build it from a local folder and not from
 # COPY casadi_kin_dyn/ /home/daniele/code/casadi_kin_dyn/src/ 
